@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f3f7f1">
+  <meta name="description" content="Jurnal studi kasus algoritma dan pemrograman C++: pahami masalah, telusuri logika, dan simpan solusi." />
+  <title>Ruang Alpro — Jurnal Studi Kasus C++</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar navbar-expand-lg container py-3" aria-label="Navigasi utama">
+      <a class="navbar-brand brand-mark" href="#beranda" aria-label="Ruang Alpro, beranda">
+        <span class="brand-icon"><i class="bi bi-braces"></i></span>
+        <span>ruang<span class="brand-accent">alpro</span></span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Buka navigasi">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <div class="navbar-nav ms-auto align-items-lg-center gap-lg-4">
+          <a class="nav-link active" href="#studi-kasus">Studi kasus</a>
+          <button class="nav-link nav-button" id="savedViewButton" type="button"><i class="bi bi-bookmark me-1"></i> Tersimpan <span class="saved-nav-count" id="savedCount">0</span></button>
+          <button class="btn btn-ink btn-sm rounded-pill px-3 ms-lg-2" data-bs-toggle="modal" data-bs-target="#addCaseModal"><i class="bi bi-plus-lg me-1"></i> Tulis kasus</button>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="beranda">
+    <section class="hero-section container">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-dot"></span> CATATAN BELAJAR ALGORITMA</div>
+        <h1>Logika yang baik<br>dimulai dari <em>bertanya.</em></h1>
+        <p class="hero-description">Kumpulan studi kasus alpro C++ untuk membedah masalah, merangkai solusi, dan menyimpan hal-hal kecil yang akhirnya membuat semuanya masuk akal.</p>
+        <div class="hero-actions">
+          <a href="#studi-kasus" class="btn btn-ink rounded-pill px-4">Jelajahi catatan <i class="bi bi-arrow-down-right ms-2"></i></a>
+          <span class="hero-note"><span class="note-spark">✳</span> Belajar satu masalah setiap kali</span>
+        </div>
+        <div class="hero-meta"><span><strong id="caseCount">0</strong> catatan</span><span class="meta-divider"></span><span>Selalu bertumbuh</span><span class="meta-scribble">↘</span></div>
+      </div>
+      <div class="hero-art" aria-label="Foto meja kerja pemrograman">
+        <img src="https://images.unsplash.com/photo-1515879218367-8466d910aaa4?auto=format&fit=crop&w=1200&q=85" alt="Layar kode di meja kerja pemrogram" />
+        <div class="art-stamp"><span>01</span><small>PAHAMI<br>MASALAHNYA</small></div>
+        <div class="art-caption"><span class="caption-line"></span> Bukan sekadar mencari jawaban.</div>
+        <div class="art-code" aria-hidden="true"><span class="code-prompt">&gt;_</span><span>solve(<b>problem</b>);</span></div>
+      </div>
+    </section>
+
+    <section class="topic-strip" aria-label="Topik alpro">
+      <div class="container topic-inner"><span class="topic-label">DI DALAM JURNAL</span><span>Logika dasar</span><span class="topic-star">✳</span><span>Struktur data</span><span class="topic-star">✳</span><span>Algoritma</span><span class="topic-star">✳</span><span>C++</span><span class="topic-tail">&nbsp; DAN SETERUSNYA</span></div>
+    </section>
+
+    <section class="cases-section container" id="studi-kasus">
+      <div class="section-heading">
+        <div>
+          <div class="eyebrow section-eyebrow"><span class="eyebrow-dot"></span> ARSIP BELAJAR</div>
+          <h2 id="listHeading">Studi kasus <span>pilihan.</span></h2>
+        </div>
+        <div class="case-tools">
+          <label class="search-box" for="caseSearch"><i class="bi bi-search"></i><input id="caseSearch" type="search" placeholder="Cari topik..." autocomplete="off"><kbd>/</kbd></label>
+          <label class="visually-hidden" for="categoryFilter">Filter kategori</label>
+          <select id="categoryFilter" class="form-select category-select" aria-label="Filter kategori">
+            <option value="Semua">Semua topik</option>
+            <option value="Logika Dasar">Logika dasar</option>
+            <option value="Perulangan">Perulangan</option>
+            <option value="Array">Array</option>
+            <option value="Fungsi">Fungsi</option>
+            <option value="String">String</option>
+          </select>
+        </div>
+      </div>
+      <div class="filter-row" id="filterRow" aria-label="Filter cepat">
+        <button class="filter-chip active" type="button" data-filter="Semua">Semua <span id="allFilterCount">0</span></button>
+        <button class="filter-chip" type="button" data-filter="Logika Dasar">Logika dasar</button>
+        <button class="filter-chip" type="button" data-filter="Perulangan">Perulangan</button>
+        <button class="filter-chip" type="button" data-filter="Array">Array</button>
+        <button class="filter-chip" type="button" data-filter="Fungsi">Fungsi</button>
+        <button class="filter-chip" type="button" data-filter="String">String</button>
+      </div>
+      <div class="case-grid row g-4" id="caseGrid" aria-live="polite"></div>
+      <div class="empty-state d-none" id="emptyState">
+        <span class="empty-icon"><i class="bi bi-journal-x"></i></span>
+        <h3>Belum ada catatan di sini.</h3>
+        <p>Coba kata kunci lain atau tulis studi kasus pertamamu.</p>
+        <button class="btn btn-ink rounded-pill px-4" data-bs-toggle="modal" data-bs-target="#addCaseModal">Tulis studi kasus</button>
+      </div>
+      <div class="section-foot"><span>AKHIR DARI CATATAN SAAT INI</span><i class="bi bi-arrow-down"></i><span>MASIH ADA BANYAK YANG BISA DIPELAJARI</span></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner"><a class="brand-mark footer-brand" href="#beranda"><span class="brand-icon"><i class="bi bi-braces"></i></span><span>ruang<span class="brand-accent">alpro</span></span></a><span>Dirangkai pelan-pelan, satu algoritma setiap kali.</span><span class="footer-year">C++ / 2026</span></div>
+  </footer>
+
+  <div class="modal fade" id="addCaseModal" tabindex="-1" aria-labelledby="addCaseTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable">
+      <div class="modal-content case-modal">
+        <form id="caseForm">
+          <div class="modal-header">
+            <div><div class="eyebrow section-eyebrow"><span class="eyebrow-dot"></span> CATATAN BARU</div><h2 class="modal-title" id="addCaseTitle">Tulis studi kasus.</h2></div>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+          </div>
+          <div class="modal-body">
+            <div class="mb-3"><label class="form-label" for="caseTitle">Judul kasus</label><input class="form-control" id="caseTitle" name="title" maxlength="90" placeholder="Contoh: Menemukan angka prima" required></div>
+            <div class="row g-3 mb-3"><div class="col-md-7"><label class="form-label" for="caseCategory">Topik</label><select class="form-select" id="caseCategory" name="category"><option>Logika Dasar</option><option>Perulangan</option><option>Array</option><option>Fungsi</option><option>String</option></select></div><div class="col-md-5"><label class="form-label" for="caseLevel">Tingkat</label><select class="form-select" id="caseLevel" name="level"><option>Pemula</option><option>Menengah</option><option>Lanjutan</option></select></div></div>
+            <div class="mb-3"><label class="form-label" for="caseSummary">Ringkasan masalah</label><textarea class="form-control" id="caseSummary" name="summary" rows="2" maxlength="220" placeholder="Masalah apa yang ingin diselesaikan?" required></textarea></div>
+            <div class="mb-3"><label class="form-label" for="caseSolution">Ide solusi</label><textarea class="form-control" id="caseSolution" name="solution" rows="3" maxlength="600" placeholder="Jelaskan langkah berpikirmu..." required></textarea></div>
+            <div class="mb-2"><label class="form-label" for="caseCode">Kode C++ <span class="optional-label">OPSIONAL</span></label><textarea class="form-control code-input" id="caseCode" name="code" rows="7" maxlength="3000" placeholder="#include &lt;iostream&gt;\nusing namespace std;\n\nint main() {\n    // tulis solusi di sini\n}"></textarea></div>
+          </div>
+          <div class="modal-footer"><button type="button" class="btn btn-light rounded-pill px-4" data-bs-dismiss="modal">Batal</button><button type="submit" class="btn btn-ink rounded-pill px-4"><i class="bi bi-plus-lg me-1"></i> Simpan catatan</button></div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="detailModal" tabindex="-1" aria-labelledby="detailTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg modal-dialog-scrollable"><div class="modal-content detail-modal" id="detailContent"></div></div>
+  </div>
+  <div class="toast-container position-fixed bottom-0 end-0 p-3"><div id="appToast" class="toast app-toast" role="status" aria-live="polite" aria-atomic="true"><div class="toast-body"><i class="bi bi-check-circle-fill me-2"></i><span id="toastMessage">Catatan tersimpan.</span></div></div></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
